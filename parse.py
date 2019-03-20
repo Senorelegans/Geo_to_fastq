@@ -27,12 +27,15 @@ def query(q, df):
 
 
 
+
 #  Append all of the samples to a final dataframe
 df_final = pd.DataFrame()
 for x in range(len(df)):
     q = df["SRX_query"].iloc[x]
-    df_merge = query(q, df)
-    df_final = df_final.append(df_merge)
+    if "SRX" in q:
+        # print("q is ", q)
+        df_merge = query(q, df)
+        df_final = df_final.append(df_merge)
 
 #Write out final dataframe
 df_final.to_csv("MyData_with_SRR.csv", index=None, sep=",")
