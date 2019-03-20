@@ -40,4 +40,8 @@ for x in range(len(df)):
 #Write out final dataframe
 df_final.to_csv("MyData_with_SRR.csv", index=None, sep=",")
 
-# fastq-dump --split-3 SRR1061341 & #CO_1
+
+df = df_final[["SRR","title"]]
+df.to_csv("MyData_SRR_title.csv", index=None, sep="\t")
+print("done ")
+
